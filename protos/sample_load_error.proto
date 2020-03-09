@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package sample;
+
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FieldOptions {
+  Scope scope = 50000;
+}
+
+message Scope {
+  repeated string type = 1;
+}
+
+message Sample {
+  uint64 id = 1 [
+    (scope) = {
+      types: ["1"]
+    }
+  ];
+}
